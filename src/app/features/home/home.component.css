@@ -5,6 +5,22 @@
     box-sizing: border-box;
   }
   
+
+  .lets-play-btn {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    background-color: #f0a500;
+    color: #222;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .lets-play-btn:hover {
+    background-color: #f78e12;
+    transform: scale(1.1);
+  }
   /* Navbar Styling */
   .navbar {
     display: flex;
