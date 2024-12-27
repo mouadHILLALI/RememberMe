@@ -1,25 +1,14 @@
-<div class="navbar">
-  <div class="logo">
-    <h1>RememberMe</h1>
+<div class="player-container">
+  <div class="screen">
+    {{ playing ? ' ' : 'Game is paused' }}<app-game #paused *ngIf="playing" @neonGlow></app-game>
   </div>
-  <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="buttons-container">
+    <button class="play-button" (click)="togglePlay()" >
+      {{ playing ? '⏸' : '▶' }}
+    </button>
+    <button class="play-button" (click)="toggleMute()">
+      <span [innerHTML]="mute ? safeVolumeOn : safeVolumeOf"></span>
+    </button>
+    <audio #myaudio src="../../assets/audio/super-mario-soundtrack.mp3" loop></audio>
+  </div>
 </div>
-
-<div class="home-container">
-<div class="game-title">
-  <button (click)="goToGame()" class="lets-play-btn">Let's Play</button>
-</div>
-</div>
-
-<footer class="footer">
-<p>© 2024 RememberMe. All rights reserved.</p>
-<div class="social-links">
-  <a href="#facebook">Facebook</a>
-  <a href="#twitter">Twitter</a>
-  <a href="#instagram">Instagram</a>
-</div>
-</footer>

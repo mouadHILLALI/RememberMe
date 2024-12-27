@@ -1,119 +1,43 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
+.player-container {
+  font-family: 'Courier New', monospace;
+  background-color: #808080;
+  border: 3px solid #c0c0c0;
+  border-radius: 10px;
+  padding: 20px;
+  width: 96%;
+  height: 90vh;
+  box-shadow: 5px 5px 0px #000000;
+}
+.screen {
+  background-color: #000000;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  color: #00ff00;
+  font-size: 18px;
+  padding: 3px;
+  height: 85%;
+  width: 93vw;
+  margin-bottom: 20px;
 
-  .lets-play-btn {
-    font-size: 1.5em;
-    padding: 15px 30px;
-    background-color: #f0a500;
-    color: #222;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-  }
-  
-  .lets-play-btn:hover {
-    background-color: #f78e12;
-    transform: scale(1.1);
-  }
-  /* Navbar Styling */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #1e1e2f;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .logo h1 {
-    font-family: 'Press Start 2P', cursive;
-    color: #ffcc00;
-    text-shadow: 2px 2px #ff5500, 4px 4px #1e1e2f;
-  }
-  
-  .nav-links {
-    display: flex;
-    list-style: none;
-  }
-  
-  .nav-links li {
-    margin-left: 2rem;
-  }
-  
-  .nav-links a {
-    font-family: 'Press Start 2P', cursive;
-    text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s, text-shadow 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #ffcc00;
-    text-shadow: 0 0 10px #ff5500, 0 0 20px #ffcc00;
-  }
-  
-  /* Footer Styling */
-  .footer {
-    text-align: center;
-    padding: 2rem;
-    background-color: #1e1e2f;
-    border-top: 2px solid #ffcc00;
-    color: #ffffff;
-    font-family: 'Press Start 2P', cursive;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  .footer p {
-    margin-bottom: 1rem;
-  }
-  
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-  
-  .social-links a {
-    text-decoration: none;
-    color: #ffffff;
-    transition: color 0.3s, text-shadow 0.3s;
-  }
-  
-  .social-links a:hover {
-    color: #ffcc00;
-    text-shadow: 0 0 10px #ff5500, 0 0 20px #ffcc00;
-  }
-  
+}
 
-.home-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #1e1e2f, #3a3a5e);
-    overflow: hidden;
-  }
-  
-  .game-title h1 {
-    font-size: 4rem;
-    font-family: 'Press Start 2P', cursive; 
-    color: #ffcc00;
-    text-shadow: 2px 2px 0px #ff5500, 4px 4px 0px #1e1e2f;
-    animation: glow 1.5s infinite alternate;
-  }
-  
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 10px #ff5500, 0 0 20px #ff5500, 0 0 30px #ffcc00, 0 0 40px #ffcc00;
-    }
-    to {
-      text-shadow: 0 0 20px #ff5500, 0 0 30px #ff5500, 0 0 40px #ffcc00, 0 0 50px #ffcc00;
-    }
-  }
-  
+.play-button {
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  border-radius: 50%;
+  color: #000000;
+  cursor: pointer;
+  font-size: 24px;
+  height: 60px;
+  width: 60px;
+  display: block;
+  margin: 0 auto;
+}
+.play-button:active {
+  border-style: inset;
+}
+
+.buttons-container{
+  display: flex;
+  align-items: center;
+}
