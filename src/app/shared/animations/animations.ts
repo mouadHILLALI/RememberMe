@@ -2,7 +2,7 @@ import { animate, keyframes, state, style, transition, trigger } from '@angular/
 
 export class Animations {
   static neonGlow = trigger('neonGlow', [
-    state('void', style({ opacity: 0 })),
+    state('void', style({ opacity: 0 })), // Initial state
     transition(':enter', [
       animate('2s ease-in-out', keyframes([
         style({ 
@@ -35,6 +35,27 @@ export class Animations {
           offset: 1
         })
       ]))
+    ])
+  ]);
+
+  static changeColor = trigger('colorChange', [
+    transition(':enter', [
+      style({ opacity: 0 }),
+      animate('500ms', style({ opacity: 1 }))
+    ]),
+    transition(':leave', [
+      animate('500ms', style({ opacity: 0 }))
+    ]),
+    transition('* => *', [
+      animate(
+        '2s infinite',
+        keyframes([
+          style({ color: 'red', offset: 0 }),
+          style({ color: 'green', offset: 0.33 }),
+          style({ color: 'blue', offset: 0.66 }),
+          style({ color: 'orange', offset: 1 })
+        ])
+      )
     ])
   ]);
 }

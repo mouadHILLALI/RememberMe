@@ -6,18 +6,66 @@
   justify-content: center;
   align-items: center;
 }
+.game-over{
+  z-index: 20;
+  position: absolute;
+  font-size: 90px;
+  font-family: 'Press Start 2P', cursive;
+  text-shadow: 2px 2px #008000;
+  display: flex;
+  flex-direction: column;
+  left: 18%;
+  align-items: center;
+}
+.game-over>button{
+  font-family: 'Press Start 2P', cursive;
+  background-color: #00ff00;
+  width: 50%;
+  height: 10%;
+  padding: 9px;
+}
+.game-over>span{
+  font-family: 'Press Start 2P', cursive;
+  font-size: medium;    
+}
+.canvas-head{
+  width: 100%;
+  height: 10%;
+  padding: 5px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+#kickGame{
+  position: absolute;
+  top: 9%;
+  left: 15%;
+  z-index: 20;
+}
 
+button{
+  z-index: 10;
+}
+.game-canvas{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 5px;
+}
 .game-comp {
   width: 100%;
   height: 100%;
   background-color: #383838;
-  font-size: large;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+  padding: 1px;
 }
 
 .game-comp::before {
