@@ -1,41 +1,52 @@
-import { sequence } from "@angular/animations";
 import { Sequence } from "../models/sequence/sequence.module";
-import { Color } from "three";
+
+
 
 export class GameService { 
-    private level : number = 1;
     private sequences : number = 2;
-
-    addSequences():Sequence []{
-        const arrayOfSequences: Sequence[] = [];
-        for (let index = 0; index <= this.sequences; index++) {
-           arrayOfSequences.push({
-            color : `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}` , 
-            width : 15 , 
-            height : 15
-           })
+    private highlightedSequences : number [] = [];
+    private arrayOfSequences: Sequence[] = [];
+    
+    addSequences(levels: number): Sequence[] {
+        this.arrayOfSequences = []; 
+        for (let index = 0; index < this.sequences + levels; index++) {
+            this.arrayOfSequences.push({
+                color: `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`,
+                width: 60,
+                height: 60
+            });
         }
-        this.sequences++;
-        return arrayOfSequences;
+        return this.arrayOfSequences;
     }
-
-    trackLevel(): number{
-        return 0;
+    
+    highLightSequences(): number[] {
+        this.highlightedSequences = []; 
+        const length = this.arrayOfSequences.length;
+        const numberToHighlight = Math.min(5, length); 
+        while (this.highlightedSequences.length < numberToHighlight) {
+            const randomIndex = Math.floor(Math.random() * length);
+            if (!this.highlightedSequences.includes(randomIndex)) {
+                this.highlightedSequences.push(randomIndex);
+            }
+        }
+        return this.highlightedSequences;
     }
-
-    trackScore():number{
-        return 0;
+    kickCounter(): Promise<boolean>{
+        return new Promise((resolve)=>{
+            setTimeout(()=>resolve(true),
+        15)
+        })
     }
-    kickCounter(): void{
-        setTimeout(()=>{
-            return true;
-        } , 15);
-    }
-
     endCounter() : void{
         setTimeout(()=>{
             return true;
         } , 15);
     }
-
+    nextLevel(clickedButtons: number[], highlightedButtons: number[]): boolean {
+        if (clickedButtons.length !== highlightedButtons.length) {
+            return false; 
+        }
+        return clickedButtons.every((button, index) => button === highlightedButtons[index]);
+    }
+    
 }

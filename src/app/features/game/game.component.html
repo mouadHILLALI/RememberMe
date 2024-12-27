@@ -1,3 +1,33 @@
 <main class="game-comp">
-      <h1>hello</h1>
+  <div class="game-canvas">
+    <div class="canvas-head">
+      <span>Level: {{ levels }}</span>
+      <span>Score: {{score}}</span>
+      <span>Counter: {{ counter }}</span>
+    </div>
+    <h1 id="kickGame" [@colorChange] *ngIf="kickGame">
+      Remember the sequences
+    </h1>
+    <button
+    *ngFor="let sequence of sequences; let i = index"
+    class="sequence-item"
+    [ngStyle]="{
+      'background-color': currentHighlight === i ? 'yellow' : sequence.color,
+      'width.px': sequence.width,
+      'height.px': sequence.height,
+      'display': gameOver ? 'none' : 'block'
+    }"
+    [disabled]="kickGame"
+    (click)="clickedButton(i)"
+  >
+  </button>
+
+  <div class="game-over" *ngIf="gameOver">
+    <p>Game Over</p>
+    <span>Level: {{ levels }}</span>
+    <span>Score: {{score}}</span>
+    <button (click)="resetGame()">Restart</button>
+  </div>
+  
+  </div>
 </main>
