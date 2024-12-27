@@ -1,18 +1,19 @@
-import { sequence } from "@angular/animations";
+import { Injectable } from "@angular/core";
 import { Sequence } from "../models/sequence/sequence.module";
-import { Color } from "three";
 
+
+@Injectable()
 export class GameService { 
     private level : number = 1;
     private sequences : number = 2;
 
     addSequences():Sequence []{
         const arrayOfSequences: Sequence[] = [];
-        for (let index = 0; index <= this.sequences; index++) {
+        for (let index = 0; index < this.sequences; index++) {
            arrayOfSequences.push({
             color : `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}` , 
-            width : 15 , 
-            height : 15
+            width : 40 , 
+            height : 40
            })
         }
         this.sequences++;

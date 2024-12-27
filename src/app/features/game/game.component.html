@@ -1,3 +1,12 @@
 <main class="game-comp">
-      <h1>hello</h1>
+  <div
+  *ngFor="let sequence of sequences; let i = index"
+  class="sequence-item"
+  [ngStyle]="{
+    'background-color': sequence.color,
+    'width.px': sequence.width,
+    'height.px': sequence.height
+  }"
+>
+</div>
 </main>
